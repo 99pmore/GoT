@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "actividad_4:build:production"
+              "browserTarget": "GoT:build:production"
             },
             "development": {
-              "browserTarget": "actividad_4:build:development"
+              "browserTarget": "GoT:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "actividad_4:build"
+            "browserTarget": "GoT:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "actividad_4"
+  "defaultProject": "GoT"
 }
