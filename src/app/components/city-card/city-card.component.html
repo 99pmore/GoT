@@ -1,0 +1,11 @@
+<div class="card" (click)="selectCity(city)">
+    <div class="frame">
+        <div class="name">
+            <h2>{{ city.name }}</h2>
+        </div>
+        <div class="info" *ngIf="city.location || city.type">
+            <p *ngIf="city.location"><i class="fa-regular fa-compass"></i>{{ city.location }}</p>
+            <p *ngIf="city.type"><i class="fa-regular fa-building"></i>{{ city.type }}</p>
+        </div>
+    </div>
+</div>

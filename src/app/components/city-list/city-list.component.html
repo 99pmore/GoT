@@ -1,0 +1,23 @@
+<div>
+    <div class="title">
+        <div class="menu">
+            <i routerLink="/" class="fa-solid fa-house"></i>
+            <span>Cities</span>
+        </div>
+        <div class="selected">
+            <p>Selected City:</p>
+            <div class="selected-info" *ngIf="selectedCity">
+                <h2>{{ selectedCity.name | uppercase }}</h2>
+                <h3 *ngIf="selectedCity.location">Location:</h3>
+                <p>{{ selectedCity.location }}</p>
+                <div *ngIf="selectedCity.rulers.length > 0">
+                    <h3>Rulers:</h3>
+                    <p *ngFor="let ruler of selectedCity.rulers | filterArray">{{ ruler }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <app-city-card *ngFor="let city of cities" [city]="city" (sendCity)="receiveCity($event)"></app-city-card>
+    </div>
+</div>

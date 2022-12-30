@@ -1,0 +1,23 @@
+<div>
+    <div class="title">
+        <div class="menu">
+            <i routerLink="/" class="fa-solid fa-house"></i>
+            <span>Houses</span>
+        </div>
+        <div class="selected">
+            <p>Selected House:</p>
+            <div class="selected-info" *ngIf="selectedHouse">
+                <h2>{{ selectedHouse.name | uppercase }}</h2>
+                <h3 *ngIf="selectedHouse.words">Words:</h3>
+                <p>{{ selectedHouse.words }}</p>
+                <div *ngIf="selectedHouse.seat.length > 0">
+                    <h3>Seats:</h3>
+                    <p *ngFor="let seat of selectedHouse.seat | filterArray">{{ seat }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <app-house-card *ngFor="let house of houses" [house]="house" (sendHouse)="receiveHouse($event)"></app-house-card>
+    </div>
+</div>

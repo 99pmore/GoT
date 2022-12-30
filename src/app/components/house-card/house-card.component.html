@@ -1,0 +1,11 @@
+<div class="card" (click)="selectHouse(house)">
+    <div class="frame">
+        <div class="name">
+            <h2>{{ house.name }}</h2>
+        </div>
+        <div class="info" *ngIf="house.words || house.seat.length > 0">
+            <p *ngIf="house.words"><i class="fa-solid fa-quote-left"></i>{{ house.words }}</p>
+            <p *ngIf="house.seat.length > 0"><i class="fa-regular fa-compass"></i>{{ house.seat }}</p>
+        </div>
+    </div>
+</div>

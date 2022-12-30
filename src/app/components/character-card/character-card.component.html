@@ -1,0 +1,11 @@
+<div class="card" (click)="selectCharacter(character)">
+    <div class="frame">
+        <div class="img">
+            <img [src]="character.image == null ? '../../../assets/broken-image.png' : character.image" [alt]="'Imagen de ' + character.name">
+        </div>
+        <div class="info">
+            <h2>{{ character.name }}</h2>
+            <h3>{{ character.house }}</h3>
+        </div>
+    </div>
+</div>

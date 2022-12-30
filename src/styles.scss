@@ -1,1 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'got';
+    src: url('./assets/fonts/GoT.ttf');
+    font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap');
+
+$got-font: 'got', sans-serif;
+$font: 'Montserrat', sans-serif;
+
+@mixin home-button() {
+    i {
+        font-size: 1.75rem;
+        color: #cccccc;
+        cursor: pointer;
+
+        transition: all 0.3s;
+
+        &:hover {
+            transform: scale(1.25);
+            text-shadow: 0 0 20px rgba(204, 204, 204, 0.75);
+        }
+    }
+}
+
+@mixin create-title() {
+    .title {
+        color: #cccccc;
+
+        min-width: 220px;
+        height: 100vh;
+        padding: 40px 0 40px 60px;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+
+        position: sticky;
+        top: 0;
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+
+            @include home-button();
+
+            span {
+                font-family: $got-font;
+                font-size: 2rem;
+                writing-mode: vertical-lr;
+                letter-spacing: 2px;
+                
+                padding: 20px 0 10px;
+                border-top: 1px solid #cccccc;
+            }
+        }
+
+        .selected {
+            font-family: $font;
+            writing-mode: sideways-lr;
+            overflow: auto;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 20px;
+
+            .selected-info {
+                padding-right: 5px;
+
+                flex-direction: column;
+                gap: 20px;
+
+                div {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+
+            &::-webkit-scrollbar {
+                background: linear-gradient(rgba(150, 150, 150, 0.25), rgba(150, 150, 150, 0.25));
+                backdrop-filter: blur(6px);
+                border-radius: 8px;
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(204, 204, 204, 0.25);
+                border-radius: 8px;
+        
+                &:hover {
+                    background-color: rgba(204, 204, 204, 0.5);
+                }
+            }
+        }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font;
+
+    &::-webkit-scrollbar {
+        background: linear-gradient(rgba(150, 150, 150, 0.9), rgba(150, 150, 150, 0.9)), url(./assets/got_intro_bg.jpg) no-repeat top / cover;
+        backdrop-filter: blur(6px);
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(204, 204, 204, 0.5);
+        border-radius: 8px;
+
+        &:hover {
+            background-color: rgba(204, 204, 204, 0.75);
+        }
+    }
+}
