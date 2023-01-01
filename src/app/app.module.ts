@@ -15,6 +15,7 @@ import { CitiesComponent } from './pages/cities/cities.component';
 import { CityListComponent } from './components/city-list/city-list.component';
 import { CityCardComponent } from './components/city-card/city-card.component';
 import { FilterArrayPipe } from './pipes/filter-array.pipe';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FilterArrayPipe } from './pipes/filter-array.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
