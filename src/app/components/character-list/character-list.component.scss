@@ -20,3 +20,23 @@ div {
         gap: 60px;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    div {
+        flex-direction: column;
+        
+        @include create-title-phone();
+    
+        .container {
+            // padding: 40px 20px;
+            padding: 0;
+            width: 100%;
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }  
+    }
+  }

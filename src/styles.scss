@@ -104,6 +104,68 @@ $font: 'Montserrat', sans-serif;
     }
 }
 
+@mixin create-title-phone() {
+    .title {
+        min-width: auto;
+        width: 100%;
+        height: auto;
+        padding: 30px 20px 0 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+
+        position: static;
+
+        .menu {
+            flex-direction: row;
+            gap: 20px;
+
+            @include home-button();
+
+            span {
+                font-size: 1.5rem;
+                writing-mode: horizontal-tb;
+                
+                padding: 0;
+                padding-left: 20px;
+                border-top: none;
+                border-left: 1px solid #cccccc;
+            }
+        }
+
+        p {
+            display: none;
+        }
+
+        .selected {
+            font-family: $font;
+            writing-mode: sideways-lr;
+            overflow: auto;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 20px;
+
+            .selected-info {
+                padding-right: 5px;
+
+                flex-direction: column;
+                gap: 20px;
+
+                div {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
