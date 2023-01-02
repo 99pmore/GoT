@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { House } from 'src/app/models/house.interface';
+import { BreakpointService } from 'src/app/services/breakpoint.service';
 import { HouseService } from 'src/app/services/house.service';
 
 @Component({
@@ -10,15 +11,18 @@ import { HouseService } from 'src/app/services/house.service';
 export class HouseListComponent implements OnInit {
 
   public houses!: House[]
+  public isMobile: boolean = false
 
   public selectedHouse!: House
 
   constructor(
-    private houseService: HouseService
+    private houseService: HouseService,
+    private breakpointService: BreakpointService,
   ) { }
 
   ngOnInit(): void {
     this.getHouses()
+    this.getIsMobile()
   }
 
   private getHouses(): void {
@@ -27,6 +31,12 @@ export class HouseListComponent implements OnInit {
         next: (response) => {
           this.houses = response
         }
+    })
+  }
+
+  private getIsMobile() {
+    this.breakpointService.getIsMobile().subscribe(result => {
+      this.isMobile = result.matches ? true : false
     })
   }
 

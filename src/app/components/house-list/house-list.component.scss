@@ -20,3 +20,20 @@ div {
         gap: 60px;
     }
 }
+
+.is-mobile {
+    flex-direction: column;
+        
+    @include create-title-mobile();
+
+    .container {
+        padding: 0;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    } 
+}
