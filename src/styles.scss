@@ -114,7 +114,7 @@ $font: 'Montserrat', sans-serif;
     }
 }
 
-@mixin create-title-phone() {
+@mixin create-title-mobile() {
     .title {
         min-width: auto;
         width: 100%;
@@ -154,20 +154,22 @@ $font: 'Montserrat', sans-serif;
                 padding: 10px;
             }
 
-            .selected-phone {
+            .selected-mobile {
                 height: 100%;
                 padding: 10px;
 
-                .selected-info-phone {
+                .selected-info-mobile {
                     display: flex;
                     justify-content: center;
                     align-items: flex-start;
+                    flex-direction: column;
                     gap: 10px;
 
                     div {
                         display: flex;
                         justify-content: center;
                         align-items: flex-start;
+                        flex-direction: column;
                         gap: 10px;
                     }
                 }

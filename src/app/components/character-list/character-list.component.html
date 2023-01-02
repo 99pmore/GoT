@@ -1,4 +1,4 @@
-<div>
+<div [ngClass]="{'is-mobile': isMobile}">
 
     <div class="title">
 
@@ -7,7 +7,7 @@
             <span>Characters</span>
         </div>
 
-        <div class="info" *ngIf="!isPhone; else phone">
+        <div class="info" *ngIf="!isMobile; else mobile">
             <p>Selected Character:</p>
 
             <div class="selected">
@@ -21,12 +21,12 @@
             </div>
         </div>
 
-        <ng-template #phone class="template">
+        <ng-template #mobile class="template">
             <details>
                 <summary>Selected Character:</summary>
                 
-                <div class="selected-phone">
-                    <div class="selected-info-phone" *ngIf="selectedCharacter">
+                <div class="selected-mobile">
+                    <div class="selected-info-mobile" *ngIf="selectedCharacter">
                         <h2>{{ selectedCharacter.name | uppercase }}</h2>
                         <div *ngIf="selectedCharacter.titles.length > 0">
                             <h3>Titles:</h3>

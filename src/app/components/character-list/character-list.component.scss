@@ -21,21 +21,19 @@ div {
     }
 }
 
-@media only screen and (max-width: 600px) {
-    div {
-        flex-direction: column;
+.is-mobile {
+    flex-direction: column;
         
-        @include create-title-phone();
-    
-        .container {
-            padding: 0;
-            width: 100%;
-    
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }  
-    }
-  }
+    @include create-title-mobile();
+
+    .container {
+        padding: 0;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    } 
+}

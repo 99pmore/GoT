@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character.interface';
 import { CharacterService } from 'src/app/services/character.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointService } from 'src/app/services/breakpoint.service';
 
 @Component({
   selector: 'app-character-list',
@@ -11,29 +12,18 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 export class CharacterListComponent implements OnInit {
 
   public characters!: Character[]
-  public isPhone: boolean = false
+  public isMobile: boolean = false
 
   public selectedCharacter!: Character
 
   constructor(
     private characterService: CharacterService,
-    private responsive: BreakpointObserver
+    private breakpointService: BreakpointService,
   ) { }
 
   ngOnInit(): void {
     this.getCharacters()
-
-    this.responsive.observe([
-      Breakpoints.XSmall     
-      ])
-      .subscribe(result => {
-
-        this.isPhone = false
-
-        if (result.matches) {
-          this.isPhone = true
-        }
-    })
+    this.getIsMobile()
   }
 
   private getCharacters(): void {
@@ -43,6 +33,16 @@ export class CharacterListComponent implements OnInit {
           this.characters = response
         }
     })
+  }
+
+  private getIsMobile() {
+    this.breakpointService.getIsMobile().subscribe(result => {
+      this.isMobile = result.matches ? true : false
+    })
+
+    // this.breakpointService.isHandset$.subscribe(isHandset => {
+    //   this.isMobile = isHandset;
+    // })
   }
 
   public receiveCharacter(character: Character) {
