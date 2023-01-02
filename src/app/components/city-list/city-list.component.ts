@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { City } from 'src/app/models/city.interface';
+import { BreakpointService } from 'src/app/services/breakpoint.service';
 import { CityService } from 'src/app/services/city.service';
 
 @Component({
@@ -10,15 +11,18 @@ import { CityService } from 'src/app/services/city.service';
 export class CityListComponent implements OnInit {
 
   public cities!: City[]
+  public isMobile: boolean = false
 
   public selectedCity!: City
 
   constructor(
-    private cityService: CityService
+    private cityService: CityService,
+    private breakpointService: BreakpointService,
   ) { }
 
   ngOnInit(): void {
     this.getCities()
+    this.getIsMobile()
   }
 
   private getCities(): void {
@@ -27,6 +31,12 @@ export class CityListComponent implements OnInit {
         next: (response) => {
           this.cities = response
         }
+    })
+  }
+
+  private getIsMobile() {
+    this.breakpointService.getIsMobile().subscribe(result => {
+      this.isMobile = result.matches ? true : false
     })
   }
 
