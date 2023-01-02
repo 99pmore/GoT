@@ -27,7 +27,7 @@ div {
     @include create-title-mobile();
 
     .container {
-        padding: 0;
+        padding: 20px 0;
         width: 100%;
 
         display: flex;
