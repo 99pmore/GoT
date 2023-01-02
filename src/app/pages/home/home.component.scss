@@ -65,3 +65,24 @@ main {
         }
     }
 }
+
+.is-mobile {
+    gap: 50px;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .menu {
+        gap: 30px;
+
+        .link-card {
+            height: 120px;
+            width: 250px;
+
+            &:hover {
+                transform: scale(1.1) translateY(0px);
+            }
+        }
+    }
+}
