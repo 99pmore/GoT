@@ -116,6 +116,8 @@ $font: 'Montserrat', sans-serif;
 
 @mixin create-title-mobile() {
     .title {
+        box-shadow: 0 0 16px rgba(70, 70, 70, 0.5);
+
         min-width: auto;
         width: 100%;
         height: auto;
